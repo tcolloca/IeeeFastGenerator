@@ -2,6 +2,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class FastReader {
@@ -51,5 +53,13 @@ public class FastReader {
 			e.printStackTrace();
 		}
 		return str;
+	}
+	
+	BigInteger nextBigInteger() {
+		return new BigInteger(next());
+	}
+	
+	BigDecimal nextBigDecimal() {
+		return new BigDecimal(next());
 	}
 }
