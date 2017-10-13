@@ -34,6 +34,7 @@ public class Main {
 			    .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
 			    .returns(void.class)
 			    .addParameter(String[].class, "args")
+			    .addStatement("$T ans = new $T()", StringBuilder.class, StringBuilder.class)
 			    .addStatement("$T sc = new $T($T.in)", Scanner.class, Scanner.class, System.class);
 		
 		mainBuilder = writeCode(varList, mainBuilder);

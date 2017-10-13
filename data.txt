@@ -1,8 +1,0 @@
-path = E:\BACKUPData\Tom\workspace\IEEETest\src
-pckg = main
-name = Sokoban
-int t
-	int n
-	(double b, boolean c)*n
-char c
-string hey
