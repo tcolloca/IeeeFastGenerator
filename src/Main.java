@@ -1,8 +1,10 @@
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.lang.model.element.Modifier;
 
@@ -35,7 +37,7 @@ public class Main {
 			    .returns(void.class)
 			    .addParameter(String[].class, "args")
 			    .addStatement("$T ans = new $T()", StringBuilder.class, StringBuilder.class)
-			    .addStatement("$T sc = new $T($T.in)", Scanner.class, Scanner.class, System.class);
+			    .addStatement("FastReader sc = new FastReader()");
 		
 		mainBuilder = writeCode(varList, mainBuilder);
 
@@ -45,6 +47,13 @@ public class Main {
 			JavaFile javaFile = JavaFile.builder(pckg, classInfo)
 			    .build();
 
+		
+		Files.copy(Paths.get("src/FastReader.java"), Paths.get(path + "/" + pckg + "/FastReader.java"), StandardCopyOption.REPLACE_EXISTING);
+		
+		RandomAccessFile writer = new RandomAccessFile(new File(path + "/" + pckg + "/FastReader.java"), "rw");
+		writer.seek(0);
+		writer.write(("package " + pckg + ";\n\n").getBytes());
+		writer.close();
 		javaFile.writeTo(Paths.get(path));
 	}
 	

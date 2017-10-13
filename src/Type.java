@@ -1,7 +1,7 @@
 
 public enum Type {
 
-	INT, DOUBLE, FLOAT, STRING, BOOLEAN, CHAR;
+	INT, DOUBLE, FLOAT, STRING, BOOLEAN, CHAR, LONG;
 	
 	public static Type get(String name) {
 		for (Type type : Type.values()) {

@@ -1,5 +1,4 @@
-
-// Working program with FastReader
+                                                                                       
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,6 +31,14 @@ public class FastReader {
 		return Long.parseLong(next());
 	}
 
+	float nextFloat() {
+		return Float.parseFloat(next());
+	}
+	
+	boolean nextBoolean() {
+		return Boolean.parseBoolean(next());
+	}
+	
 	double nextDouble() {
 		return Double.parseDouble(next());
 	}
