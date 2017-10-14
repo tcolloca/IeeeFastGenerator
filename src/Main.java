@@ -47,14 +47,14 @@ public class Main {
 			JavaFile javaFile = JavaFile.builder(pckg, classInfo)
 			    .build();
 
-		
+			javaFile.writeTo(Paths.get(path));
+			
 		Files.copy(Paths.get("src/FastReader.java"), Paths.get(path + "/" + pckg + "/FastReader.java"), StandardCopyOption.REPLACE_EXISTING);
 		
 		RandomAccessFile writer = new RandomAccessFile(new File(path + "/" + pckg + "/FastReader.java"), "rw");
 		writer.seek(0);
 		writer.write(("package " + pckg + ";\n\n").getBytes());
 		writer.close();
-		javaFile.writeTo(Paths.get(path));
 	}
 	
 	public static Builder writeCode(List<VariableList> varLists, Builder builder) {
